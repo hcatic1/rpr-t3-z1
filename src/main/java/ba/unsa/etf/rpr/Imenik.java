@@ -19,6 +19,7 @@ public class Imenik {
                 return par.getKey();
             }
         }
+        throw new mojIzuzetak("Ne postoji korisnik sa datim brojem telefona");
     }
     String naSlovo(char s){
         String na = new String();
