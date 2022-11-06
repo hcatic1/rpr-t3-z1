@@ -1,11 +1,11 @@
 package ba.unsa.etf.rpr;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 import static ba.unsa.etf.rpr.Grad.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 public class ImenikTest {
 
     @Test
@@ -60,6 +60,23 @@ public class ImenikTest {
         assertEquals("033/123-156,033/123-456,033/123-656,", result);
     }
 
+    @Test
+    void izuzetak(){
+        Imenik imenik = new Imenik();
+        imenik.dodaj("Ivo Ivic", new FiksniBroj(SARAJEVO, "123-456"));
+        imenik.dodaj("Sara Sarac", new FiksniBroj(SARAJEVO, "123-156"));
+        imenik.dodaj("Meho Mehic", new FiksniBroj(SARAJEVO, "123-656"));
+        imenik.dodaj("Pero Peric", new MobilniBroj(64, "987-654"));
+        imenik.dodaj("John Smith", new MedunarodniBroj("+1", "23 45-67-89"));
+        Exception izuzetak = assertThrows(mojIzuzetak.class, () -> {
+            imenik.dajIme(new FiksniBroj(BIHAĆ, "123-456"));
+        });
+
+        String expectedMessage = "Ne postoji korisnik sa datim brojem telefona";
+        String actualMessage =  izuzetak.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
 
 
 }
