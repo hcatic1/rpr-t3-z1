@@ -14,7 +14,11 @@ public class Imenik {
         return imenik.get(ime).ispisi();
     }
     String dajIme(TelefonskiBroj broj){
-        
+        for(Map.Entry<String, TelefonskiBroj> par: imenik.entrySet()){
+            if(par.getValue().ispisi().equals(broj)){
+                return par.getKey();
+            }
+        }
     }
     String naSlovo(char s){
         String na = new String();
