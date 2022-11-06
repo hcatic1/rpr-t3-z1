@@ -14,7 +14,7 @@ public class Imenik {
     } //metoda koja vraca broj telefona korisnika sa proslijedjenim imenom
     String dajIme(TelefonskiBroj broj){ //metoda koja vraca ime korisnika ciji je broj telefona proslijedjen
         for(Map.Entry<String, TelefonskiBroj> par: imenik.entrySet()){ //koristi se metoda kojom se dobijaju svi Entries za mapu
-            if(par.getValue().ispisi().equals(broj)){
+            if(par.getValue().ispisi().equals(broj.ispisi())){
                 return par.getKey();
             }
         }
