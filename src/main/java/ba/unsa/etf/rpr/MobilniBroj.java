@@ -2,7 +2,7 @@ package ba.unsa.etf.rpr;
 
 public class MobilniBroj extends TelefonskiBroj{ //dijete klasa nasljedjuje klasu TelefonskiBroj
     MobilniBroj (int mobilnaMreza, String broj){ //konstruktor
-        this.broj = new String("0" + mobilnaMreza + "\\" + broj);
+        this.broj = new String("0" + mobilnaMreza + "/" + broj);
     }
 
     @Override

@@ -1,11 +1,14 @@
 package ba.unsa.etf.rpr;
 
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Imenik {
     Map<String, TelefonskiBroj> imenik;
+
+    public Imenik() {
+        imenik = new TreeMap<String, TelefonskiBroj>() ;
+    }
+
     void dodaj(String ime, TelefonskiBroj broj){
         imenik.put(ime, broj);
     } //moetoda koja izvrsava dodavanje korisnika u imenik
